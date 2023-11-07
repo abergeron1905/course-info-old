@@ -8,20 +8,28 @@ import java.net.http.HttpRequest;
 
 public class CourseRetrieverService {
 
-    private static final String PS_URI= "https://app.pluralsight.com/profile/data/author/%s/all-content";
+    private static final String PS_URI = "https://app.pluralsight.com/profile/data/author/%s/all-content";
 
-    private static final HttpClient CLIENT = HttpClient.newHttpClient();
+    // private static final HttpClient CLIENT = HttpClient.newHttpClient();
+    private static final HttpClient CLIENT = HttpClient.newBuilder()
+            .followRedirects(HttpClient.Redirect.ALWAYS)
+            .build();
 
-    public String getCoursesFor(String authorId){
+    public String getCoursesFor(String authorId) {
         HttpRequest request = HttpRequest
                 .newBuilder(URI.create(PS_URI.formatted(authorId))).GET().build();
         try {
-            HttpResponse<String> response = CLIENT.send(request, HttpResponse.BodyHandlers.ofString());     
-            return response.body();
-        } catch (InterruptedException| IOException e) {
+            HttpResponse<String> response = CLIENT.send(request, HttpResponse.BodyHandlers.ofString());
+            // return response.body();
+            return switch (response.statusCode()) {
+                case 200 -> response.body();
+                case 404 -> "";
+                default ->
+                    throw new RuntimeException("Pluralsight API call failed with status code " + response.statusCode());
+            };
+        } catch (InterruptedException | IOException e) {
             throw new RuntimeException("Could not call Pluralsight API", e);
         }
-           
-        
+
     }
 }
