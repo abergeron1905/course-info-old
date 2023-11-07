@@ -3,6 +3,8 @@ package com.pluralsight.cli;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.pluralsight.cli.service.CourseRetrieverService;
+
 public class CourseRetriever {
     private static final Logger LOG = LoggerFactory.getLogger(CourseRetriever.class);
     public static void main(String[] args) {
@@ -20,10 +22,12 @@ public class CourseRetriever {
         }
         
     }
-
     
-
     private static void retrieveCourses(String authorName) {
         LOG.info("Retrieving courses for author {}" + authorName);
+        CourseRetrieverService courseRetrieverservice = new CourseRetrieverService();
+
+        String coursesToStore  = courseRetrieverservice.getCoursesFor(authorName);
+        LOG.info("Retrieved the following courses {}", coursesToStore);
     }
 }

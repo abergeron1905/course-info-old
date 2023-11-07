@@ -51,7 +51,7 @@
             "request": "launch",
             "mainClass": "com.pluralsight.cli.CourseRetriever",
             "projectName": "course-info",
-            "args": ["Rodin"]
+            "args": ["sander-mak"]
         }
     ]
 }
