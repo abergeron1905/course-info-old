@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import com.pluralsight.cli.service.CourseRetrieverService;
 import com.pluralsight.cli.service.PluralsightCourse;
 
+import static java.util.function.Predicate.not;
+
 public class CourseRetriever {
     private static final Logger LOG = LoggerFactory.getLogger(CourseRetriever.class);
 
@@ -31,7 +33,16 @@ public class CourseRetriever {
         LOG.info("Retrieving courses for author {}" + authorName);
         CourseRetrieverService courseRetrieverservice = new CourseRetrieverService();
 
-        List<PluralsightCourse> coursesToStore = courseRetrieverservice.getCoursesFor(authorName);
+        List<PluralsightCourse> coursesToStore = courseRetrieverservice.getCoursesFor(authorName)
+                .stream()
+                .filter(course -> !(course.isRetired()))
+                .toList();
+
+        coursesToStore = coursesToStore
+                .stream()
+                .filter(not(PluralsightCourse::isRetired))
+                .toList();
+
         LOG.info("Retrieved the following the following {} courses {}", coursesToStore.size(),
                 coursesToStore.toString());
     }
