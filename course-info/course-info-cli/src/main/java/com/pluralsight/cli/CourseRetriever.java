@@ -1,5 +1,7 @@
 package com.pluralsight.cli;
 
+import static java.util.function.Predicate.not;
+
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -7,8 +9,6 @@ import org.slf4j.LoggerFactory;
 
 import com.pluralsight.cli.service.CourseRetrieverService;
 import com.pluralsight.cli.service.PluralsightCourse;
-
-import static java.util.function.Predicate.not;
 
 public class CourseRetriever {
     private static final Logger LOG = LoggerFactory.getLogger(CourseRetriever.class);

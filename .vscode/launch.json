@@ -50,7 +50,7 @@
             "name": "CourseRetriever",
             "request": "launch",
             "mainClass": "com.pluralsight.cli.CourseRetriever",
-            "projectName": "course-info",
+            "projectName": "course-info-cli",
             "args": ["sander-mak"]
         }
     ]
