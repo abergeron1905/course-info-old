@@ -131,4 +131,5 @@ dist
 
 
 *.jar
-*.class
+
+course-info/target/classes/com/pluralsight/cli/*.class
