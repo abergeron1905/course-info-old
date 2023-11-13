@@ -133,3 +133,6 @@ dist
 *.jar
 
 course-info/target/classes/com/pluralsight/cli/*.class
+course-info/course-info-cli/target/maven-archiver/pom.properties
+course-info/course-info-cli/target/maven-status/maven-compiler-plugin/compile/default-compile/*.lst
+course-info/course-info-cli/target/surefire-reports/TEST-com.pluralsight.cli.service.PluralsightCourseTest.xml
