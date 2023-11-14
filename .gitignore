@@ -138,3 +138,9 @@ course-info/course-info-cli/target/maven-status/maven-compiler-plugin/compile/de
 course-info/course-info-cli/target/surefire-reports/TEST-com.pluralsight.cli.service.PluralsightCourseTest.xml
 course-info/course-info-cli/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
 course-info/course-info-repository/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+course-info/course-info-cli/target/classes/com/pluralsight/cli/*.class
+course-info/course-info-cli/target/classes/com/pluralsight/cli/service/*.class
+course-info/course-info-cli/target/test-classes/com/pluralsight/cli/service/PluralsightCourseTest.class
+course-info/course-info-repository/target/classes/com/pluralsight/courseinfo/domain/Course.class
+course-info/course-info-repository/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+course-info/course-info-repository/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
