@@ -6,8 +6,8 @@ import com.pluralsight.courseinfo.domain.Course;
 
 public interface CourseRepository {
 
-    void saveCourse(Course course);
+    void saveCourse(Course course) throws RepositoryException;
 
-    List<Course> getAllCourses();
+    List<Course> getAllCourses() throws RepositoryException;
     
 }
